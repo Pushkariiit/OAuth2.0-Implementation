@@ -13,7 +13,12 @@ OAuth2.0 has 4 roles :
 
 OAuth allows granular access levels. Rather than entrusting our entire protected data to a third party, we would prefer to share just the necessary data with them. Thus, we need a trusted intermediary that would grant limited access(known as scope) to the editor without revealing the user’s credentials once the user has granted permission.(known as consent).
 
+![image](https://github.com/Pushkariiit/OAuth2.0-Implementation/assets/96918138/47e5681f-6c36-404f-b67c-d0b0d647c4e7)
+
 Lets take an example on the implementation of OAuth2.0
+
+
+![image](https://github.com/Pushkariiit/OAuth2.0-Implementation/assets/96918138/87504551-7736-4a53-9eec-fdcc0ad6b35b)
 
 
 So here : 
