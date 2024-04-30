@@ -19,9 +19,7 @@ const app = express();
 
 app.use(
   cors({
-    // Sets Access-Control-Allow-Origin to the UI URI
     origin: UI_ROOT_URI,
-    // Sets Access-Control-Allow-Credentials to true
     credentials: true,
   })
 );
@@ -46,8 +44,6 @@ function getGoogleAuthURL() {
 
   return `${rootUrl}?${querystring.stringify(options)}`;
 }
-
-// Getting login URL
 app.get("/auth/google/url", (req, res) => {
   return res.send(getGoogleAuthURL());
 });
@@ -69,10 +65,6 @@ function getTokens({
   scope: string;
   id_token: string;
 }> {
-  /*
-   * Uses the code to get tokens
-   * that can be used to fetch the user's profile
-   */
   const url = "https://oauth2.googleapis.com/token";
   const values = {
     code,
@@ -95,7 +87,6 @@ function getTokens({
     });
 }
 
-// Getting the user from Google with the code
 app.get(`/${redirectURI}`, async (req, res) => {
   const code = req.query.code as string;
 
@@ -106,7 +97,6 @@ app.get(`/${redirectURI}`, async (req, res) => {
     redirectUri: `${SERVER_ROOT_URI}/${redirectURI}`,
   });
 
-  // Fetch the user's profile with the access token and bearer
   const googleUser = await axios
     .get(
       `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${access_token}`,
@@ -133,7 +123,6 @@ app.get(`/${redirectURI}`, async (req, res) => {
   res.redirect(UI_ROOT_URI);
 });
 
-// Getting the current user
 app.get("/auth/me", (req, res) => {
   console.log("get me");
   try {
@@ -146,10 +135,8 @@ app.get("/auth/me", (req, res) => {
   }
 });
 
-function main() {
-  app.listen(port, () => {
-    console.log(`App listening http://localhost:${port}`);
-  });
-}
+app.listen(port, () => {
+  console.log(`App listening http://localhost:${port}`);
+});
 
-main();
+

@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="App">
       <a href="https://accounts.google.com/o/oauth2/v2/auth?redirect_uri=http%3A%2F%2Flocalhost%3A4000%2Fauth%2Fgoogle&client_id=824730658633-mdv4ek5vsia4vfcap91p9d0h9uni6gr1.apps.googleusercontent.com&access_type=offline&response_type=code&prompt=consent&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email">
-        LOGIN WITH GOOGLE
+        Sign in with Google
       </a>
     </div>
   );
